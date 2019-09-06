@@ -1,0 +1,9 @@
+.full-feature {
+  text-align: center;
+  height: 30rem;
+  grid-column: 1 / -1;
+}
+
+.full-feature-list-view {
+  width: 60rem;
+}

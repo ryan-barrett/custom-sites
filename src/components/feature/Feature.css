@@ -1,0 +1,30 @@
+.feature {
+  width: 23rem;
+}
+
+.feature-img {
+  height: 14rem;
+}
+
+.more-info-button {
+  margin-top: 1rem;
+  width: 7rem;
+  height: 2.5rem;
+  background-color: Transparent;
+  color: black;
+  border: black;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.text-content {
+  margin-top: 1rem;
+  font-family: proxima-nova;
+  white-space: pre-wrap;
+}
+
+.component-list-view {
+  border-style: dotted;
+  padding: 1rem;
+  margin: 1rem;
+}

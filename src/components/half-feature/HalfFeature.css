@@ -1,0 +1,18 @@
+.half-feature {
+  text-align: center;
+  width: 30rem;
+  height: 17rem;
+  margin-right: 2.5rem;
+}
+
+.live-component {
+  margin-top: 4rem;
+}
+
+.half-image {
+  height: 7rem;
+}
+
+.configure-half-feature-label {
+  display: block;
+}

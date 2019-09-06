@@ -1,0 +1,29 @@
+.video-label {
+  display: block;
+}
+
+.video-input {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.video-button {
+  display: block;
+}
+
+.video-frame {
+  margin-top: 2rem;
+  width: 32rem;
+  height: 17rem;
+}
+
+.input-url {
+  width: 30rem;
+  height: 17rem;
+  font-size: 2rem;
+}
+
+.youtube-placeholder {
+  width: 30rem;
+  height: 17rem;
+}
