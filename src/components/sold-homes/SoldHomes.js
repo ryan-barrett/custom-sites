@@ -2,14 +2,6 @@ import React, { Component } from 'react';
 import './SoldHomes.css';
 
 const SoldHomes = props => {
-  localStorage.setItem(
-    'splitTreatments',
-    JSON.stringify({
-      'teams-sold-homes': 'on',
-      'agents-sold-homes': 'on',
-      'companies-sold-homes': 'on'
-    })
-  );
   const { emptyComponent, assignComponent } = props;
   if (emptyComponent) {
     return (
