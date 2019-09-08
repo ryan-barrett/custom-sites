@@ -6,7 +6,6 @@ import HalfFeature from '../half-feature/HalfFeature';
 import FullFeature from '../full-feature/FullFeature';
 import './Row.css';
 import plusIcon from '../../assets/icons/plus.png';
-import SoldHomes from '../sold-homes/SoldHomes';
 
 const componentModalStyles = {
   content: {
@@ -33,7 +32,6 @@ class Row extends Component {
           video: Video,
           halfFeature: HalfFeature,
           fullFeature: FullFeature,
-          soldHomes: SoldHomes
         }
       ]
     };
@@ -128,7 +126,6 @@ class Row extends Component {
               assignComponent={this.assignComponent}
               emptyComponent
             />
-            <SoldHomes assignComponent={this.assignComponent} emptyComponent />
           </div>
         );
         break;

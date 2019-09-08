@@ -10,9 +10,7 @@ class Header extends Component {
     return (
       <div className="header">
         <div>
-        <img class="logo-partner" src="" alt="" />
-          <a href="#buy">Buy</a>
-          <a href="#sell">Sell</a>
+        <img className="logo-partner" src="" alt="" />
         </div>
       </div>
     );
