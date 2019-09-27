@@ -25,41 +25,76 @@ class HalfFeature extends Component {
     };
 
     this.openConfigureModal = this.openConfigureModal.bind(this);
+    this.closeConfigureModal = this.closeConfigureModal.bind(this);
     this.halfFeatureEditState = this.halfFeatureEditState.bind(this);
   }
 
+  componentDidCatch(error, info) {
+    // Display fallback UI
+    this.setState({ hasError: true });
+    // You can also log the error to an error reporting service
+    console.error(error);
+  }
+
   debounce(func, delay) {
-    let inDebounce
+    let inDebounce;
     return function() {
-      const context = this
-      const args = arguments
-      clearTimeout(inDebounce)
-      inDebounce = setTimeout(() => func.apply(context, args), delay)
-    }
+      const context = this;
+      const args = arguments;
+      clearTimeout(inDebounce);
+      inDebounce = setTimeout(() => func.apply(context, args), delay);
+    };
   }
 
   halfFeatureEditState() {
-    document.querySelectorAll('.ReactModal__Content--after-open')[1].querySelector('input').addEventListener('change', readURL, true);
-    function readURL() {
-      var file = document.getElementById('getval').files[0];
+    const readURL = () => {
+      try {
+        var file = document.getElementById('half-feature-file').files[0];
+      } catch (error) {
+        console.error(error);
+      }
       var reader = new FileReader();
       reader.onloadend = function() {
-        const splashContent = document.querySelector('.splash-content');
-        splashContent.style.backgroundImage = 'url(' + reader.result + ')';
-        const uploader = document.getElementById('getval');
-        uploader.remove();
-        splashContent.classList.remove('empty-component');
+        const splashContent = document.querySelector('.half-feature-splash');
+
+        try {
+          splashContent.style.backgroundImage = 'url(' + reader.result + ')';
+        } catch (error) {
+          console.error(error);
+        }
+        const uploader = document.getElementById('half-feature-file');
+
+        if (uploader) {
+          uploader.remove();
+        }
+        try {
+          splashContent.classList.remove('empty-component');
+        } catch (error) {
+          console.error(error);
+        }
       };
       if (file) {
         reader.readAsDataURL(file);
       } else {
       }
+    };
+    try {
+      const uploaderInput = document.querySelectorAll(
+        '.ReactModal__Content--after-open > .half-feature-splash > input'
+      )[0];
+      uploaderInput.addEventListener('change', readURL, true);
+    } catch (error) {
+      console.error(error);
     }
   }
 
-  openConfigureModal() {
-    this.setState({ configureModalIsOpen: true });
+  async openConfigureModal() {
+    await this.setState({ configureModalIsOpen: true });
     this.halfFeatureEditState();
+  }
+
+  async closeConfigureModal() {
+    await this.setState({ configureModalIsOpen: false });
   }
 
   render() {
