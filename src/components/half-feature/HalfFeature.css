@@ -5,6 +5,21 @@
   margin-right: 2.5rem;
 }
 
+.half-feature-splash {
+  background-size: 1600px;
+  height: 35rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  background-position: center;
+}
+
+.half-feature-splash.empty-component {
+  flex-direction: column;
+}
+
 .live-component {
   margin-top: 4rem;
 }
@@ -15,4 +30,35 @@
 
 .configure-half-feature-label {
   display: block;
+}
+
+.half-feature-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-self: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+.half-feature-title {
+  font-size: .8rem;
+  width: 50%;
+  height: 1.2rem;
+  margin-top: .4rem;
+  margin-bottom: 1rem;
+}
+
+.half-feature-configure-body {
+  font-size: 1rem;
+  height: 8rem;
+  width: 100%;
+  margin-top: .4rem;
+  margin-bottom: 1rem;
+}
+
+.half-feature-submit {
+  margin-top: 0.5rem;
+  width: 15%;
+  height: 1.5rem;
 }

@@ -5,6 +5,7 @@ import './HalfFeature.css';
 const configureModalStyles = {
   content: {
     display: 'flex',
+    flexDirection: 'column',
     top: '50%',
     left: '50%',
     right: 'auto',
@@ -121,24 +122,45 @@ class HalfFeature extends Component {
             style={configureModalStyles}
             contentLabel="Configure Component"
           >
-            <div className="splash-content empty-component">
-              <input type="file" id="getval" name="background-image" />
+            <div className="half-feature-splash empty-component">
+              <input
+                type="file"
+                id="half-feature-file"
+                name="background-image"
+              />
             </div>
-            <form>
+            <form className="half-feature-form">
               <label
                 className="configure-half-feature-label"
                 htmlFor="configure-title"
               >
                 Title
               </label>
-              <input key="configure-feature-title" name="configure-title" />
+              <input
+                key="configure-feature-title"
+                name="configure-title"
+                className="half-feature-title"
+              />
               <label
                 className="configure-half-feature-label"
                 htmlFor="configure-body"
               >
                 Body
               </label>
-              <input key="configure-feature-body" name="configure-body" />
+              <textarea
+                key="configure-feature-body"
+                name="configure-body"
+                className="half-feature-configure-body"
+              />
+              <button
+                className="half-feature-submit"
+                onClick={e => {
+                  e.preventDefault();
+                  console.log('submit feature');
+                }}
+              >
+                Submit
+              </button>
             </form>
           </Modal>
         </div>
