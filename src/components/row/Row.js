@@ -31,7 +31,7 @@ class Row extends Component {
           feature: Feature,
           video: Video,
           halfFeature: HalfFeature,
-          fullFeature: FullFeature,
+          fullFeature: FullFeature
         }
       ]
     };
