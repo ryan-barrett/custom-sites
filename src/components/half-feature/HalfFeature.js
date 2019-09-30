@@ -28,12 +28,12 @@ class HalfFeature extends Component {
     this.openConfigureModal = this.openConfigureModal.bind(this);
     this.closeConfigureModal = this.closeConfigureModal.bind(this);
     this.halfFeatureEditState = this.halfFeatureEditState.bind(this);
+    this.halfFeatureSubmit = this.halfFeatureSubmit.bind(this);
   }
 
   componentDidCatch(error, info) {
     // Display fallback UI
     this.setState({ hasError: true });
-    // You can also log the error to an error reporting service
     console.error(error);
   }
 
@@ -94,8 +94,27 @@ class HalfFeature extends Component {
     this.halfFeatureEditState();
   }
 
-  async closeConfigureModal() {
-    await this.setState({ configureModalIsOpen: false });
+  closeConfigureModal() {
+    this.setState({ configureModalIsOpen: false });
+  }
+
+  async halfFeatureSubmit(e) {
+    e.preventDefault();
+    const { assignComponent } = this.props;
+
+    const title = document.querySelector('.half-feature-title').value;
+    const body = document.querySelector('.half-feature-configure-body').value;
+    const splashUrl = this.state.url;
+    await this.setState({
+      featureData: {
+        title,
+        body,
+        splashUrl
+      }
+    });
+    this.closeConfigureModal();
+    const { featureData } = this.state;
+    assignComponent('halfFeature', featureData);
   }
 
   render() {
@@ -154,10 +173,7 @@ class HalfFeature extends Component {
               />
               <button
                 className="half-feature-submit"
-                onClick={e => {
-                  e.preventDefault();
-                  console.log('submit feature');
-                }}
+                onClick={this.halfFeatureSubmit}
               >
                 Submit
               </button>
