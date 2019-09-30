@@ -48,6 +48,7 @@ class HalfFeature extends Component {
   }
 
   halfFeatureEditState() {
+    const that = this;
     const readURL = () => {
       try {
         var file = document.getElementById('half-feature-file').files[0];
@@ -60,6 +61,7 @@ class HalfFeature extends Component {
 
         try {
           splashContent.style.backgroundImage = 'url(' + reader.result + ')';
+          that.setState({ url: reader.result });
         } catch (error) {
           console.error(error);
         }
