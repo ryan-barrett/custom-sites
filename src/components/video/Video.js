@@ -20,17 +20,20 @@ class Video extends Component {
     const match = url.match(regExp);
 
     if (match && match[2].length == 11) {
-        return match[2];
+      return match[2];
     } else {
-        return 'error';
+      return 'error';
     }
-}
+  }
 
   setUrl() {
     const { assignComponent } = this.props;
     const urlVal = document.querySelector('.video-input').value;
     this.setState({ url: this.getId(urlVal) });
-    assignComponent('video', {url: this.getId(urlVal), renderedComponent: true});
+    assignComponent('video', {
+      url: this.getId(urlVal),
+      renderedComponent: true
+    });
   }
 
   toggleEdit() {
