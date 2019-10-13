@@ -2,7 +2,7 @@
   text-align: center;
   width: 30rem;
   height: 17rem;
-  margin-right: 2.5rem;
+  margin-right: 3rem;
 }
 
 .half-feature-splash {
@@ -22,10 +22,15 @@
 
 .live-component {
   margin-top: 4rem;
+  margin-bottom: 3.5rem;
 }
 
 .half-image {
   height: 7rem;
+}
+
+.half-image-live {
+  height: 12rem;
 }
 
 .configure-half-feature-label {
