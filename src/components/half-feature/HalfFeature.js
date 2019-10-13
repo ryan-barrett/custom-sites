@@ -190,7 +190,7 @@ class HalfFeature extends Component {
       return (
         <div className="half-feature live-component">
           <h2>{title}</h2>
-          <img className="half-image" src={splashUrl} />
+          <img className="half-image-live" src={splashUrl} />
           <div className="text-content">{body}</div>
         </div>
       );
