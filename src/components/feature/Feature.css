@@ -20,7 +20,7 @@
 .text-content {
   margin-top: 1rem;
   font-family: proxima-nova;
-  white-space: pre-wrap;
+  word-break: break-all;
 }
 
 .component-list-view {
