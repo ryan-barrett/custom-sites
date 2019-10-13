@@ -160,6 +160,7 @@ class HalfFeature extends Component {
               <input
                 key="configure-feature-title"
                 name="configure-title"
+                maxLength="36"
                 className="half-feature-title"
               />
               <label
@@ -171,6 +172,7 @@ class HalfFeature extends Component {
               <textarea
                 key="configure-feature-body"
                 name="configure-body"
+                maxLength="100"
                 className="half-feature-configure-body"
               />
               <button
