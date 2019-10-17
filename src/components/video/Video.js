@@ -9,7 +9,6 @@ class Video extends Component {
       renderedComponent: false,
       url: ''
     };
-    console.log('video init');
     this.setUrl = this.setUrl.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
     this.getId = this.getId.bind(this);
