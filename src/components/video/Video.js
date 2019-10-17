@@ -9,6 +9,7 @@ class Video extends Component {
       renderedComponent: false,
       url: ''
     };
+    this.validateUrl = this.validateUrl.bind(this);
     this.setUrl = this.setUrl.bind(this);
     this.toggleEdit = this.toggleEdit.bind(this);
     this.getId = this.getId.bind(this);
@@ -25,14 +26,27 @@ class Video extends Component {
     }
   }
 
+  validateUrl(urlVal) {
+    const match = urlVal.match(
+      /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/
+    );
+    return match;
+  }
+
   setUrl() {
     const { assignComponent } = this.props;
     const urlVal = document.querySelector('.video-input').value;
-    this.setState({ url: this.getId(urlVal) });
-    assignComponent('video', {
-      url: this.getId(urlVal),
-      renderedComponent: true
-    });
+    const validUrl = this.validateUrl(urlVal);
+
+    if (validUrl) {
+      this.setState({ url: this.getId(urlVal) });
+      assignComponent('video', {
+        url: this.getId(urlVal),
+        renderedComponent: true
+      });
+    } else {
+      document.querySelector('.video-input').value = 'Enter valid Youtube url';
+    }
   }
 
   toggleEdit() {
