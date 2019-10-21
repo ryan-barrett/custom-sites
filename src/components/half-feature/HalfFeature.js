@@ -85,7 +85,9 @@ class HalfFeature extends Component {
       const uploaderInput = document.querySelectorAll(
         '.ReactModal__Content--after-open > .half-feature-splash > input'
       )[0];
-      uploaderInput.addEventListener('change', readURL, true);
+      if (uploaderInput) {
+        uploaderInput.addEventListener('change', readURL, true);
+      }
     } catch (error) {
       console.error(error);
     }
