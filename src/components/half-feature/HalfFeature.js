@@ -49,6 +49,18 @@ class HalfFeature extends Component {
 
   halfFeatureEditState() {
     const that = this;
+
+    // close modal on click outside of itself
+    const upperOverlay = document.querySelectorAll('.ReactModal__Overlay')[1]; // the configure half feature overlay
+    if (upperOverlay) {
+      // upperOverlay might be null when clicking submit
+      upperOverlay.addEventListener('click', event => {
+        if (event.target.classList.contains('ReactModal__Overlay')) {
+          this.closeConfigureModal();
+        }
+      });
+    }
+
     const readURL = () => {
       try {
         var file = document.getElementById('half-feature-file').files[0];
@@ -85,7 +97,9 @@ class HalfFeature extends Component {
       const uploaderInput = document.querySelectorAll(
         '.ReactModal__Content--after-open > .half-feature-splash > input'
       )[0];
-      uploaderInput.addEventListener('change', readURL, true);
+      if (uploaderInput) {
+        uploaderInput.addEventListener('change', readURL, true);
+      }
     } catch (error) {
       console.error(error);
     }
